@@ -1,8 +1,10 @@
 <?php
 
+/*
+ * Header Comment
+ */
 
 namespace Gundy\Weather;
-
 
 use GuzzleHttp\Client;
 use Gundy\Weather\Exceptions\HttpException;
@@ -11,8 +13,8 @@ use Gundy\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key;
-    protected $guzzleOptions = [];
 
+    protected $guzzleOptions = [];
 
     public function __construct(string $key)
     {
@@ -49,11 +51,11 @@ class Weather
         ];
 
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\array_key_exists(\strtolower($type), $types)) {
-            throw new InvalidArgumentException('Invalid type value(live/forecast): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(live/forecast): '.$type);
         }
 
         $query = array_filter([
@@ -73,6 +75,4 @@ class Weather
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
     }
-
-
 }

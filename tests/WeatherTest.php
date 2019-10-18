@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Header Comment
+ */
+
 namespace Gundy\Weather\Tests;
 
 use GuzzleHttp\ClientInterface;
@@ -13,7 +17,6 @@ use PHPUnit\Framework\TestCase;
 
 class WeatherTest extends TestCase
 {
-
     public function testGetWeather()
     {
         // 创建接口模拟响应值
@@ -29,7 +32,7 @@ class WeatherTest extends TestCase
                 'city' => '深圳',
                 'output' => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         // 将 `getHttpClient` 方法替换为上面创建的 http client 为返回值的模拟方法。
